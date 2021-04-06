@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83E8133F-F9D4-405C-AA28-FAD8813AE785}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LAB7</RootNamespace>
+    <AssemblyName>LAB7</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.11.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.22\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlConnector, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
+      <HintPath>packages\MySqlConnector.1.2.0\lib\net471\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.22\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.22\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Component\BaseDonnee.cs" />
+    <Compile Include="Component\CheckForm.cs" />
+    <Compile Include="Component\CreatePDF.cs" />
+    <Compile Include="Manager\EmployeManager.cs" />
+    <Compile Include="Entity\Client.cs" />
+    <Compile Include="Form\FmGestionEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmGestionEmploye.Designer.cs">
+      <DependentUpon>FmGestionEmploye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmPreviewFiche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmPreviewFiche.Designer.cs">
+      <DependentUpon>FmPreviewFiche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmAcceuil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmAcceuil.Designer.cs">
+      <DependentUpon>FmAcceuil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FicheManager.cs" />
+    <Compile Include="Form\FmFicheEnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmFicheEnd.Designer.cs">
+      <DependentUpon>FmFicheEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FicheAsPieceDetManager.cs" />
+    <Compile Include="Form\FmAddPiece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmAddPiece.Designer.cs">
+      <DependentUpon>FmAddPiece.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmPieceDeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmPieceDeta.Designer.cs">
+      <DependentUpon>FmPieceDeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmMainOeuvre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmMainOeuvre.Designer.cs">
+      <DependentUpon>FmMainOeuvre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmTva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmTva.Designer.cs">
+      <DependentUpon>FmTva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmListeModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmListeModele.Designer.cs">
+      <DependentUpon>FmListeModele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmUpdateModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmUpdateModele.Designer.cs">
+      <DependentUpon>FmUpdateModele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmCreateModele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmCreateModele.Designer.cs">
+      <DependentUpon>FmCreateModele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmCreateFicheRepa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmCreateFicheRepa.Designer.cs">
+      <DependentUpon>FmCreateFicheRepa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmCreateMarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmCreateMarque.Designer.cs">
+      <DependentUpon>FmCreateMarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmInfoLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmInfoLab.Designer.cs">
+      <DependentUpon>FmInfoLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmUpdateMarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmUpdateMarque.Designer.cs">
+      <DependentUpon>FmUpdateMarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmListeMarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmListeMarque.Designer.cs">
+      <DependentUpon>FmListeMarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmUpdateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmUpdateClient.Designer.cs">
+      <DependentUpon>FmUpdateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\MainOeuvreManager.cs" />
+    <Compile Include="Manager\ClientManager.cs" />
+    <Compile Include="Entity\Employe.cs" />
+    <Compile Include="Entity\FicheAsPieceDet.cs" />
+    <Compile Include="Entity\FicheDeReparation.cs" />
+    <Compile Include="Form\FmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmAdmin.Designer.cs">
+      <DependentUpon>FmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmCreateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmCreateClient.Designer.cs">
+      <DependentUpon>FmCreateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmListeClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmListeClient.Designer.cs">
+      <DependentUpon>FmListeClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmTechos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmTechos.Designer.cs">
+      <DependentUpon>FmTechos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FmConnexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FmConnexion.Designer.cs">
+      <DependentUpon>FmConnexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\InfoLabSept.cs" />
+    <Compile Include="Entity\MainOeuvre.cs" />
+    <Compile Include="Entity\Marque.cs" />
+    <Compile Include="Entity\Modele.cs" />
+    <Compile Include="Entity\PieceDetachee.cs" />
+    <Compile Include="Manager\InfoManager.cs" />
+    <Compile Include="Manager\MarqueManager.cs" />
+    <Compile Include="Manager\ModeleManager.cs" />
+    <Compile Include="Manager\PieceDetacheeManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entity\Tva.cs" />
+    <Compile Include="Manager\TvaManager.cs" />
+    <EmbeddedResource Include="Form\FmGestionEmploye.resx">
+      <DependentUpon>FmGestionEmploye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmPreviewFiche.resx">
+      <DependentUpon>FmPreviewFiche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmAcceuil.resx">
+      <DependentUpon>FmAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmFicheEnd.resx">
+      <DependentUpon>FmFicheEnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmAddPiece.resx">
+      <DependentUpon>FmAddPiece.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmPieceDeta.resx">
+      <DependentUpon>FmPieceDeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmMainOeuvre.resx">
+      <DependentUpon>FmMainOeuvre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmTva.resx">
+      <DependentUpon>FmTva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmListeModele.resx">
+      <DependentUpon>FmListeModele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmUpdateModele.resx">
+      <DependentUpon>FmUpdateModele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmCreateModele.resx">
+      <DependentUpon>FmCreateModele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmCreateFicheRepa.resx">
+      <DependentUpon>FmCreateFicheRepa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmCreateMarque.resx">
+      <DependentUpon>FmCreateMarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmInfoLab.resx">
+      <DependentUpon>FmInfoLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmUpdateMarque.resx">
+      <DependentUpon>FmUpdateMarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmListeMarque.resx">
+      <DependentUpon>FmListeMarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmUpdateClient.resx">
+      <DependentUpon>FmUpdateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmAdmin.resx">
+      <DependentUpon>FmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmConnexion.resx">
+      <DependentUpon>FmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmCreateClient.resx">
+      <DependentUpon>FmCreateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmListeClient.resx">
+      <DependentUpon>FmListeClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FmTechos.resx">
+      <DependentUpon>FmTechos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
