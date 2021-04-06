@@ -12,6 +12,13 @@
  * git commit -m "Message"
  * git push -u origin <branch>
 
+
+# Installer les packages nécessaires
+  * Projet > Gérer les packages Nuget > Parcourir puis installé
+    * iTextSharp
+    * MySql.Data
+    * MySqlConnector
+
 # TO DO
 
 * Files to comment

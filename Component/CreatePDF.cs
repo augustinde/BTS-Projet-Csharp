@@ -8,7 +8,6 @@ using iTextSharp;
 using iTextSharp.text.pdf;
 using LAB7.Manager;
 using iTextSharp.text;
-using LAB7.Component;
 
 namespace LAB7.Component
 {
@@ -56,7 +55,7 @@ namespace LAB7.Component
 
 
             //create image
-            var logo = iTextSharp.text.Image.GetInstance("F:/Projets/[Projet] LAB7/LAB7/assets/logoLab7.PNG");
+            var logo = iTextSharp.text.Image.GetInstance("../../assets/logoLab7.PNG");
             logo.ScaleAbsoluteHeight(100);
             logo.ScaleAbsoluteWidth(100);
 
