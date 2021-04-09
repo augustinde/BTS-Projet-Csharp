@@ -30,10 +30,17 @@
         {
             this.lbTitleAccueil = new System.Windows.Forms.Label();
             this.dgvListeFiche = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbBoxFiltreCritere = new System.Windows.Forms.ComboBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnFiltre = new System.Windows.Forms.Button();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.lbMessageError = new System.Windows.Forms.Label();
             this.numFiche = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomClt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sousStatut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVisualise = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnDownload = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnTransformDevis = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -42,13 +49,6 @@
             this.btnAccepter = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRefus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbBoxFiltreCritere = new System.Windows.Forms.ComboBox();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btnFiltre = new System.Windows.Forms.Button();
-            this.btnShowAll = new System.Windows.Forms.Button();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.lbMessageError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListeFiche)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             this.numFiche,
             this.nomClt,
             this.montant,
-            this.statut,
+            this.sousStatut,
             this.btnVisualise,
             this.btnDownload,
             this.btnTransformDevis,
@@ -90,6 +90,70 @@
             this.dgvListeFiche.TabIndex = 1;
             this.dgvListeFiche.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListeFiche_CellContentClick);
             this.dgvListeFiche.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvListeFiche_EditingControlShowing);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 322);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(266, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Recherche d\'une fiche de réparation";
+            // 
+            // cbBoxFiltreCritere
+            // 
+            this.cbBoxFiltreCritere.FormattingEnabled = true;
+            this.cbBoxFiltreCritere.Location = new System.Drawing.Point(12, 345);
+            this.cbBoxFiltreCritere.Name = "cbBoxFiltreCritere";
+            this.cbBoxFiltreCritere.Size = new System.Drawing.Size(121, 21);
+            this.cbBoxFiltreCritere.TabIndex = 22;
+            this.cbBoxFiltreCritere.SelectionChangeCommitted += new System.EventHandler(this.cbBoxFiltreCritere_SelectionChangeCommitted);
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(139, 345);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(104, 20);
+            this.tbSearch.TabIndex = 21;
+            // 
+            // btnFiltre
+            // 
+            this.btnFiltre.Location = new System.Drawing.Point(248, 343);
+            this.btnFiltre.Name = "btnFiltre";
+            this.btnFiltre.Size = new System.Drawing.Size(76, 23);
+            this.btnFiltre.TabIndex = 20;
+            this.btnFiltre.Text = "Rechercher";
+            this.btnFiltre.UseVisualStyleBackColor = true;
+            this.btnFiltre.Click += new System.EventHandler(this.btnFiltre_Click);
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(330, 343);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(76, 23);
+            this.btnShowAll.TabIndex = 19;
+            this.btnShowAll.Text = "Tout afficher";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.CustomFormat = "dd.MM.yyyy";
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDate.Location = new System.Drawing.Point(13, 373);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(92, 20);
+            this.dtpDate.TabIndex = 23;
+            this.dtpDate.Visible = false;
+            // 
+            // lbMessageError
+            // 
+            this.lbMessageError.AutoSize = true;
+            this.lbMessageError.Location = new System.Drawing.Point(145, 379);
+            this.lbMessageError.Name = "lbMessageError";
+            this.lbMessageError.Size = new System.Drawing.Size(0, 13);
+            this.lbMessageError.TabIndex = 24;
             // 
             // numFiche
             // 
@@ -109,11 +173,11 @@
             this.montant.MinimumWidth = 6;
             this.montant.Name = "montant";
             // 
-            // statut
+            // sousStatut
             // 
-            this.statut.HeaderText = "Statut";
-            this.statut.MinimumWidth = 6;
-            this.statut.Name = "statut";
+            this.sousStatut.HeaderText = "Statut";
+            this.sousStatut.MinimumWidth = 6;
+            this.sousStatut.Name = "sousStatut";
             // 
             // btnVisualise
             // 
@@ -184,70 +248,6 @@
             this.btnDelete.Text = "Supprimer";
             this.btnDelete.UseColumnTextForButtonValue = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 322);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(266, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Recherche d\'une fiche de réparation";
-            // 
-            // cbBoxFiltreCritere
-            // 
-            this.cbBoxFiltreCritere.FormattingEnabled = true;
-            this.cbBoxFiltreCritere.Location = new System.Drawing.Point(12, 345);
-            this.cbBoxFiltreCritere.Name = "cbBoxFiltreCritere";
-            this.cbBoxFiltreCritere.Size = new System.Drawing.Size(121, 21);
-            this.cbBoxFiltreCritere.TabIndex = 22;
-            this.cbBoxFiltreCritere.SelectionChangeCommitted += new System.EventHandler(this.cbBoxFiltreCritere_SelectionChangeCommitted);
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.Location = new System.Drawing.Point(139, 345);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(104, 20);
-            this.tbSearch.TabIndex = 21;
-            // 
-            // btnFiltre
-            // 
-            this.btnFiltre.Location = new System.Drawing.Point(248, 343);
-            this.btnFiltre.Name = "btnFiltre";
-            this.btnFiltre.Size = new System.Drawing.Size(76, 23);
-            this.btnFiltre.TabIndex = 20;
-            this.btnFiltre.Text = "Rechercher";
-            this.btnFiltre.UseVisualStyleBackColor = true;
-            this.btnFiltre.Click += new System.EventHandler(this.btnFiltre_Click);
-            // 
-            // btnShowAll
-            // 
-            this.btnShowAll.Location = new System.Drawing.Point(330, 343);
-            this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(76, 23);
-            this.btnShowAll.TabIndex = 19;
-            this.btnShowAll.Text = "Tout afficher";
-            this.btnShowAll.UseVisualStyleBackColor = true;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.CustomFormat = "dd.MM.yyyy";
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(13, 373);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(92, 20);
-            this.dtpDate.TabIndex = 23;
-            this.dtpDate.Visible = false;
-            // 
-            // lbMessageError
-            // 
-            this.lbMessageError.AutoSize = true;
-            this.lbMessageError.Location = new System.Drawing.Point(145, 379);
-            this.lbMessageError.Name = "lbMessageError";
-            this.lbMessageError.Size = new System.Drawing.Size(0, 13);
-            this.lbMessageError.TabIndex = 24;
-            // 
             // FmAcceuil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,7 +287,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numFiche;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomClt;
         private System.Windows.Forms.DataGridViewTextBoxColumn montant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sousStatut;
         private System.Windows.Forms.DataGridViewButtonColumn btnVisualise;
         private System.Windows.Forms.DataGridViewButtonColumn btnDownload;
         private System.Windows.Forms.DataGridViewButtonColumn btnTransformDevis;

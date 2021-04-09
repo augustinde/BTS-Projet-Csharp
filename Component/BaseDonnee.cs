@@ -994,7 +994,7 @@ namespace LAB7.Component
                     {
                         while (lecteur.Read())
                         {
-                            FicheDeReparation fiche = new FicheDeReparation((int)lecteur[0], (double)lecteur[1], lecteur[2].ToString(), lecteur[3].ToString(), new Client((int)lecteur[4]));
+                            FicheDeReparation fiche = new FicheDeReparation((int)lecteur[0], (double)lecteur[1], lecteur[2].ToString(), new Client((int)lecteur[3]));
                             ficheCollection.Add(fiche);
                         }
 

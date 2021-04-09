@@ -32,7 +32,7 @@ namespace LAB7
         {
             List<FicheDeReparation> ficheCollection = new List<FicheDeReparation>();
             BaseDonnee baseDonnee = new BaseDonnee();
-            MySqlCommand command = new MySqlCommand("SELECT idFiche, ttc, statut, sousStatut, idClient FROM fichedereparation");
+            MySqlCommand command = new MySqlCommand("SELECT idFiche, ttc, sousStatut, idClient FROM fichedereparation");
 
             ficheCollection = baseDonnee.bdReadAllFiche(command);
 
@@ -217,62 +217,62 @@ namespace LAB7
 
         }
 
-        //Méthode qui créé la commande pour lire une fiche en fonction d'un filtre
-        public List<FicheDeReparation> readFiltreFiche(string cibleFiltre, string valeurFiltre)
-        {
-            List<FicheDeReparation> ficheDeReparations = new List<FicheDeReparation>();
-            BaseDonnee baseDonnee = new BaseDonnee();
-            MySqlCommand command = new MySqlCommand();
-            string rq = "SELECT idFiche, ttc, statut, idClient, dateDevis FROM fichedereparation WHERE";
+         //Méthode qui créé la commande pour lire une fiche en fonction d'un filtre
+         public List<FicheDeReparation> readFiltreFiche(string cibleFiltre, string valeurFiltre)
+         {
+             List<FicheDeReparation> ficheDeReparations = new List<FicheDeReparation>();
+             BaseDonnee baseDonnee = new BaseDonnee();
+             MySqlCommand command = new MySqlCommand();
+             string rq = "SELECT idFiche, ttc, sousStatut, idClient FROM fichedereparation WHERE";
 
-            if(cibleFiltre == "Numéro de fiche")
-            {
+             if(cibleFiltre == "Numéro de fiche")
+             {
 
-                rq = rq + " idFiche = " + Int32.Parse(valeurFiltre);
-                command.CommandText = rq;
-                ficheDeReparations = baseDonnee.bdReadAllFiche(command);
-                return ficheDeReparations;
+                 rq = rq + " idFiche = " + Int32.Parse(valeurFiltre);
+                 command.CommandText = rq;
+                 ficheDeReparations = baseDonnee.bdReadAllFiche(command);
+                 
+                 return ficheDeReparations;
+             }
+             else if(cibleFiltre == "Nom")
+             {
+                 MySqlCommand command2 = new MySqlCommand("SELECT * FROM client WHERE nomClt = @valeurFiltre");
+                 command2.Parameters.AddWithValue("@valeurFiltre", valeurFiltre);
+
+                 Client client = baseDonnee.bdReadClient(command2);
+                 int idClt = client.IdClt;
+
+                 rq = rq + " idClient = " + idClt;
+                 command.CommandText = rq;
+                 ficheDeReparations = baseDonnee.bdReadAllFiche(command);
+                 return ficheDeReparations;
+
+             }
+             else if(cibleFiltre == "Statut")
+             {
+                 rq = rq + " sousStatut = " + "\"" +valeurFiltre + "\"";
+                 command.CommandText = rq;
+                 ficheDeReparations = baseDonnee.bdReadAllFiche(command);
+                 return ficheDeReparations;
+
+             }
+             else if(cibleFiltre == "Date")
+             {
+                 DateTime date = Convert.ToDateTime(valeurFiltre);
+                 rq = rq + " dateDevis = " + "\"" + date.Year + "-" + date.Month + "-" + date.Day + "\"";
+                 command.CommandText = rq;
+                 ficheDeReparations = baseDonnee.bdReadAllFiche(command);
+                 return ficheDeReparations;
+
+             }
+             else
+             {
+                 return null;
+
+             }
 
 
-            }
-            else if(cibleFiltre == "Nom")
-            {
-                MySqlCommand command2 = new MySqlCommand("SELECT * FROM client WHERE nomClt = @valeurFiltre");
-                command2.Parameters.AddWithValue("@valeurFiltre", valeurFiltre);
+         }
 
-                Client client = baseDonnee.bdReadClient(command2);
-                int idClt = client.IdClt;
-
-                rq = rq + " idClient = " + idClt;
-                command.CommandText = rq;
-                ficheDeReparations = baseDonnee.bdReadAllFiche(command);
-                return ficheDeReparations;
-
-            }
-            else if(cibleFiltre == "Statut")
-            {
-                rq = rq + " statut = " + "\"" +valeurFiltre + "\"";
-                command.CommandText = rq;
-                ficheDeReparations = baseDonnee.bdReadAllFiche(command);
-                return ficheDeReparations;
-
-            }
-            else if(cibleFiltre == "Date")
-            {
-                DateTime date = Convert.ToDateTime(valeurFiltre);
-                rq = rq + " dateDevis = " + "\"" + date.Year + "-" + date.Month + "-" + date.Day + "\"";
-                command.CommandText = rq;
-                ficheDeReparations = baseDonnee.bdReadAllFiche(command);
-                return ficheDeReparations;
-
-            }
-            else
-            {
-                return null;
-
-            }
-
-           
-        }
     }
 }

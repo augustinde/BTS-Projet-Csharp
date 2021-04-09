@@ -41,12 +41,12 @@ namespace LAB7
 
         }
 
-        public FicheDeReparation(int idFiche, double ttc, string statut, string sousStatut, Client client)
+
+        public FicheDeReparation(int idFiche, double ttc, string sousStatut, Client client)
         {
             this.idFiche = idFiche;
             this.client = client;
             this.TTC = ttc;
-            this.statut = statut;
             this.sousStatut = sousStatut;
 
         }

@@ -37,8 +37,8 @@ namespace LAB7
                 dtDateDevis.Visible = true;
                 dtDateDevis.Value = fiche.DateDevis;
             }
-            
 
+            dtDateAchat.Value = fiche.DateAchat;
             lbIdFiche.Text = "Fiche n°" + fiche.IdFiche;
             tbDureeReparation.Text = fiche.DureeReparation.ToString();
             rtbCommentaire.Text = fiche.Commentaire;

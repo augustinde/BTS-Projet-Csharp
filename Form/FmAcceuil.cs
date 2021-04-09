@@ -331,6 +331,7 @@ namespace LAB7
             {
 
                 string valeurFiltre = tbSearch.Text.ToString();
+                Console.WriteLine(valeurFiltre);
 
                 FicheManager ficheManager = new FicheManager();
                 List<FicheDeReparation> ficheDeReparations = new List<FicheDeReparation>();
@@ -348,7 +349,7 @@ namespace LAB7
                         Client clt = clientManager.readClient(ficheDeReparation.Client.IdClt);
                         string nomClt = clt.fullNameClt;
 
-                        dgvListeFiche.Rows.Add(ficheDeReparation.IdFiche, nomClt, ficheDeReparation.TTC1 + " €", ficheDeReparation.Statut);
+                        dgvListeFiche.Rows.Add(ficheDeReparation.IdFiche, nomClt, ficheDeReparation.TTC1 + " €", ficheDeReparation.SousStatut);
 
                     }
                 }
@@ -362,7 +363,8 @@ namespace LAB7
                 lbMessageError.Text = "Recherche effectué ! ";
                 lbMessageError.ForeColor = System.Drawing.Color.Green;
 
-            }else if (tbSearch.Enabled == false)
+            }
+            else if (tbSearch.Enabled == false)
             {
                 string valeurFiltre = dtpDate.Value.ToString();
 
@@ -400,11 +402,9 @@ namespace LAB7
                 lbMessageError.Text = "Vérifier l'entrée utilisateur ! ";
                 lbMessageError.ForeColor = System.Drawing.Color.Red;
             }
-
-
-
-
         }
+
+
         //Méthode qui affiche toutes les fiches
         private void btnShowAll_Click(object sender, EventArgs e)
         {
